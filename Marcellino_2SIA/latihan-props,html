@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Props</title>
+
+    <!-- Link CDN React -->
+    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+    const ProductCard = (props) => {
+        const { productName, price, imageUrl } = props;
+
+        return (
+            <div style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '20px', maxWidth: '300px' }}>
+                <img src={imageUrl} alt={productName} style={{ maxWidth: '100%' }} />
+                <h3>{productName}</h3>
+                <p>Price: ${price}</p>
+            </div>
+        );
+    };
+
+    // Contoh penggunaan komponen ProductCard untuk toko roti
+    ReactDOM.render(
+        <div>
+            <ProductCard productName="French Baguette" price={5} imageUrl="french baguette.jpg" />
+            <ProductCard productName="Croissant" price={3} imageUrl="croissant.jpg" />
+            <ProductCard productName="Whole Wheat Bread" price={4} imageUrl="whole wheat bread.jpg" />
+        </div>,
+        document.getElementById('root')
+    );
+</script>
+</body>
+</html>
